@@ -1,9 +1,15 @@
-import { React, Component } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class CommentList extends Component {
   render() {
-    return this.props.componentComments;
+    return (
+      <div>
+        {this.props.componentComments.map(comment => (
+          <li>{comment}</li>
+        ))}
+      </div>
+    );
   }
 }
 
