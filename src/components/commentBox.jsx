@@ -4,7 +4,8 @@ import * as actions from "../actions";
 
 class CommentBox extends Component {
   state = {
-    comment: ""
+    comment: "",
+    nick: ""
   };
 
   handleSubmit = e => {
@@ -13,7 +14,7 @@ class CommentBox extends Component {
     this.props.saveComment(this.state.comment);
   };
 
-  handleChange = e => {
+  handleCommentChange = e => {
     this.setState({ comment: e.target.value });
   };
 
@@ -21,7 +22,13 @@ class CommentBox extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <textarea onChange={this.handleChange} value={this.state.comment} />
+          <textarea
+            placeholder="comment here"
+            style={{ width: "100%" }}
+            onChange={this.handleCommentChange}
+            value={this.state.comment}
+          />
+
           <div>
             <button disabled={this.state.comment === "" ? true : false}>
               Submit Comment

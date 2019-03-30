@@ -6,7 +6,7 @@ class CommentList extends Component {
     return (
       <div>
         {this.props.componentComments.map(comment => (
-          <li>{comment}</li>
+          <li key={comment}>{comment}</li>
         ))}
       </div>
     );
